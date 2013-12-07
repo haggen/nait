@@ -9,4 +9,5 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Nait::Application.config.secret_key_base = '7dc9c3f20eefcc727876806fec2288ab3b061d6c79056c2663b6112c35e451214abbcb00fcfa5a24070ac305f4b62496bff055d8010848b525f60d73cd8d4275'
+Nait::Application.config.secret_key_base = ENV.fetch('SECRET_KEY_BASE', 'K8sKxfvVgbAKoWi6mkryOnlnqzWkYkULzUDXBy1NqEOlr0yPZbVQxw+LQef2Qu7zVhJ+hvs6J/J6NlqO2N5rjE2V34dhmWXCbjlaoJhTDQ8YcA96FlcmMochQ6Qt0A==')
+
