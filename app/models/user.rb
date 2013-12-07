@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :projects, :through => :memberships
   has_many :logs
 
+  validates_presence_of :name
+
   def avatar(size = 32)
     hash = Digest::MD5.hexdigest(email)
     "//gravatar.com/avatar/#{hash}.jpg?s=#{size}"
