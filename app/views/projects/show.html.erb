@@ -1,0 +1,31 @@
+<header>
+  <h2>Summary</h2>
+</header>
+
+<p>...</p>
+
+<!--
+<header>
+  <h2>Comments</h2>
+</header>
+
+<% if @project.comments.each do |comment| %>
+  <blockquote>
+    <%= simple_format comment.content %>
+    <cite>&mdash; <%= comment.author.name %>, <%= time_ago_in_words comment.created_at %></cite>
+  </blockquote>
+<% end.empty? %>
+  <p>No comments.</p>
+<% end %>
+
+<header>
+  <h3>New comment</h3>
+</header>
+
+<%= form_for [@project, @project.comments.new] do |f| %>
+  <div class="row">
+    <%= f.text_area :content %>
+  </div>
+  <%= f.submit %>
+<% end %>
+-->

@@ -1,0 +1,41 @@
+<header>
+  <h2><%= @entry.title %></h2>
+
+  <ul class="inline">
+    <li><%= link_to fa('arrow-left').concat(' Back'), current_project_entries_path %></li>
+    <li><%= link_to fa('pencil').concat(' Edit'), edit_current_project_entry_path(@entry) %></li>
+  </ul>
+</header>
+
+<% if @entry.status %>
+  <p><%= render @entry.status %></p>
+<% end %>
+
+<%= simple_format @entry.description %>
+
+<!-- 
+<aside>
+  <header>
+    <h2>Comments</h2>
+  </header>
+
+  <% if @entry.comments.any? %>
+    <div>
+      <%= render @entry.comments %>
+    </div>
+  <% else %>
+    <p>No comments.</p>
+  <% end %>
+
+  <header>
+    <h3>New comment</h3>
+  </header>
+
+  <%= form_for [current_project, @entry, @entry.comments.new] do |f| %>
+    <div class="row">
+      <%= f.text_area :content %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</aside>
+-->

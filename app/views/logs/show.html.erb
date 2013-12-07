@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @log.date %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @log.value %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @log.author %>
+</p>
+
+<p>
+  <strong>Entry:</strong>
+  <%= @log.entry %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @log.project %>
+</p>
+
+<%= link_to 'Edit', edit_current_project_log_path(@log) %> |
+<%= link_to 'Back', current_project_logs_path %>

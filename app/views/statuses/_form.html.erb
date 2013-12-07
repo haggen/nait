@@ -1,0 +1,29 @@
+<%= form_for [current_project, @status] do |f| %>
+  <% if @status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
+
+      <ul>
+      <% @status.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="row">
+    <%= f.label :color %>
+    <%= f.select :color, color_options, :prompt => 'Choose a color' %>
+  </div>
+  <div class="row">
+    <label>
+      <%= f.check_box :closing %>
+      Closing ?
+    </label>
+  </div>
+  <%= f.submit %>
+<% end %>

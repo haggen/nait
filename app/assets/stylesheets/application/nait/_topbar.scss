@@ -1,0 +1,46 @@
+.topbar {
+  background: #f8f8ff;
+  padding: 1em 1.618em; 
+
+  a {
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  ul {
+    display: inline-block;
+  }
+
+  h1,
+  h2 {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  ul {
+    @extend ul.inline;
+  }
+
+  h1 a {
+  }
+
+  h2 {
+    background: #6dc;
+    padding: 1em 1.618em;
+    margin: -1em 1.618em;
+
+    a {
+      color: #fff;
+
+      @extend a;
+    }
+  }
+
+  img {
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: -6px; 
+    vertical-align: -60%;
+  }
+}

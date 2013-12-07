@@ -1,0 +1,42 @@
+$all-button-inputs: 'input[type="button"], input[type="submit"], input[type="reset"]';
+
+form {
+  .row {
+    margin-bottom: 1em;
+
+    label {
+      color: #aaaaaf;
+      display: block;
+      font-size: .8em;
+      text-transform: uppercase;
+    }
+  }
+}
+
+select,
+textarea,
+#{$all-text-inputs} {
+  background: #fff;
+  border: 1px solid #dddddf;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #aaaaaf;
+  padding: .4045em;
+  width: 100%;
+
+  @include appearance(none);
+
+  &:focus {
+    outline: none;
+    border-color: #aaaaaf;
+    color: inherit;
+  }
+}
+
+button,
+#{$all-button-inputs} {
+  border: 0;
+
+  @include appearance(none);
+  @extend .button;
+}

@@ -1,0 +1,22 @@
+span.tag {
+  font-size: .9em;
+  border-radius: 2px;
+  color: #fff;
+  padding: 1px 3px;
+
+  &.red {
+    background: #f88;
+  }
+
+  &.yellow {
+    background: #ec5;
+  }
+
+  &.blue {
+    background: #8bf;
+  }
+
+  &.green {
+    background: #6dc;
+  }
+}

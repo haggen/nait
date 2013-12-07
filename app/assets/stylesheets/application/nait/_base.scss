@@ -1,0 +1,157 @@
+body {
+  color: #000006;
+  font-family: Proxima Nova;
+  // font-size: 20px;
+}
+
+address,
+article,
+aside,
+audio,
+blockquote,
+body,
+canvas,
+dd,
+div,
+dl,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+noscript,
+ol,
+output,
+p,
+pre,
+section,
+table,
+tfoot,
+ul,
+video {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  padding-left: 1.618em;
+}
+
+.inline {
+  display: inline-block;
+}
+
+ul,
+ol {
+  &.inline {
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      @extend .inline;
+    }
+
+    li + li {
+      margin-left: 1em;
+    }
+  }
+}
+
+a {
+  color: #aaaaaf;
+  
+  @include transition(color .1s);
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.float-right {
+  float: right;
+}
+
+main {
+  padding: 1.618em;
+
+  p,
+  ul,
+  ol,
+  dl,
+  pre,
+  form,
+  table,
+  footer,
+  header,
+  blockquote {
+    margin-bottom: 1em;
+  }
+
+  header {
+    & > :first-child {
+      margin-right: 1.618em;
+    }
+
+    h2 {
+      display: inline-block;
+    }
+  }
+
+  li > ul,
+  li + li {
+    margin-top: .4045em;
+  }
+
+  blockquote {
+    background: #f8f8ff;
+    padding: .4045em;
+    position: relative;
+    margin-left: 3.5em;
+    box-shadow: -1px 0 #ccc;
+
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      left: -19px;
+
+      @include triangle(20px, #f8f8ff, left);
+    }
+
+    &:before {
+      left: -20px;
+      border-right-color: #aaa;
+    }
+
+    img {
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: -3.5em;
+    }
+
+    cite {
+      font-size: .9em;
+      color: #aaaaaf;
+    }
+  }  
+}
+
+footer {
+  border-top: 1px solid #f8f8ff;
+  font-size: .9em;
+  padding: 1.618em 0;
+  text-align: center;
+}

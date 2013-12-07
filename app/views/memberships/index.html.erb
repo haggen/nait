@@ -1,0 +1,22 @@
+<header>
+  <h2>Listing project members</h2>
+
+  <ul class="inline">
+    <li><%= link_to fa('arrow-left').concat(' Back'), edit_current_project_path %></li>
+    <li><%= link_to fa('plus').concat(' New member'), new_current_project_membership_path %></li>
+  </ul>
+</header>
+
+<% if @memberships.any? %>
+  <ul>
+    <% @memberships.each do |membership| %>
+      <li>
+        <%= membership.user.name %>
+        &mdash;
+        <%= destroy_link fa('trash-o'), current_project_membership_path(membership) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No members.</p>
+<% end %>

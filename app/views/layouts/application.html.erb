@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nait</title>
+  <%= stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="topbar">
+  <h1>
+    <%= link_to fa('home'), root_path %>
+  </h1>
+
+  <% if current_user %>
+    <% if current_project %>
+      <h2>
+        <%= link_to current_project.name, projects_path %>
+      </h2>
+
+      <ul>
+        <li><%= link_to 'Summary', current_project_path %></li>
+        <li><%= link_to 'Entries', current_project_entries_path %></li>
+        <li><%= link_to 'Logs', current_project_logs_path %></li>
+      </ul>
+    <% else %>
+      <h2>
+        <%= link_to 'Pick a project', projects_path %>
+      </h2>
+    <% end %>
+  <% end %>
+
+  <ul class="float-right">
+    <% if current_user %>
+      <li><%= image_tag current_user.avatar %></li>
+      <li><%= link_to 'People', users_path %></li>
+      <li><%= link_to 'Quit', session_path, :method => :delete %></li>
+    <% else %>
+      <li><%= link_to 'Sign in', new_session_path %></li>
+    <% end %>
+  </ul>
+</nav>
+
+<main>
+  <%= yield %>
+</main>
+
+<footer>
+  <p>Nait <%= Nait::REVISION %>.<%= Nait::VERSION %> &copy; <%= Time.now.year %> &middot; <a href="#">GitHub Project</a></p>
+</footer>
+
+<%= javascript_include_tag "application", "data-turbolinks-track" => true, "data-turbolinks-eval" => false %>
+</body>
+</html>

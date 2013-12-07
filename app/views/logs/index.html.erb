@@ -1,0 +1,27 @@
+<header>
+  <h2>Listing logs</h2>
+  <%= link_to fa('plus').concat(' New log'), new_current_project_log_path %>
+</header>
+
+<% if @logs.any? %>
+  <ul class="timeline">
+    <% @logs.group_by(&:date).each do |date, logs| %>
+      <li>
+        <%= date %>
+
+        <ul>
+          <% logs.each do |log| %>
+            <li>
+              <strong><%= log.author.name %></strong> logged <strong><%= pluralize(log.value, 'hours') %></strong>
+              &mdash;
+              <%= link_to fa('pencil'), edit_current_project_log_path(log) %>
+              <%= destroy_link fa('trash-o'), current_project_log_path(log) %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No logs.</p>
+<% end %>

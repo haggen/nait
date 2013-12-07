@@ -1,0 +1,19 @@
+<header>
+  <h2>Listing users</h2>
+  <%= link_to fa('plus').concat(' New user'), new_user_path %>
+</header>
+
+<% if @users.any? %>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <%= user.name %>
+        &mdash;
+        <%= link_to fa('pencil'), edit_user_path(user) %>
+        <%= destroy_link fa('trash-o'), user %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No members.</p>
+<% end %>

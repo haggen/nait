@@ -1,0 +1,31 @@
+<%= form_for [current_project, @entry] do |f| %>
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+      <% @entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="row">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="row">
+    <%= f.label :estimate %>
+    <%= f.select :estimate, estimate_options, :include_blank => 'No estimate' %>
+  </div>
+  <div class="row">
+    <%= f.label :status_id %>
+    <%= f.collection_select :status_id, status_options, :id, :name, :include_blank => 'Choose a status' %>
+  </div>
+  <%= f.submit %>
+<% end %>

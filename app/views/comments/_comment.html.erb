@@ -1,0 +1,4 @@
+<blockquote>
+  <%= simple_format comment.content %>
+  <cite>&mdash; <%= image_tag comment.author.avatar %> <%= comment.author.name %>, <%= time_ago_in_words comment.created_at %></cite>
+</blockquote>

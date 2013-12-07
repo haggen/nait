@@ -1,0 +1,23 @@
+<header>
+  <h2>Listing project statuses</h2>
+
+  <ul class="inline">
+    <li><%= link_to fa('arrow-left').concat(' Back'), edit_current_project_path %></li>
+    <li><%= link_to fa('plus').concat(' New status'), new_current_project_status_path %></li>
+  </ul>
+</header>
+
+<% if @statuses.any? %>
+  <ul>
+    <% @statuses.each do |status| %>
+      <li>
+        <%= status.name %>
+        &mdash;
+        <%= link_to fa('pencil'), edit_current_project_status_path(status) %>
+        <%= destroy_link fa('trash-o'), current_project_status_path(status) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No statuses.</p>
+<% end %>

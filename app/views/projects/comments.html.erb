@@ -1,0 +1,10 @@
+<header>
+  <h2>Chat</h2>
+</header>
+
+<% @comments.each do |comment| %>
+  <blockquote>
+    <%= simple_format comment.content %>
+    <cite>&mdash; <%= comment.author.name %>, <%= time_ago_in_words comment.created_at %></cite>
+  </blockquote>
+<% end %>

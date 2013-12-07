@@ -1,0 +1,19 @@
+<% if @session.errors.any? %>
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:
+    <%= @session.errors.full_messages.to_sentence.downcase %>.
+  </div>
+<% end %>
+
+<%= form_for @session, :url => session_path, :html => {:class => 'form'} do |f| %>
+  <div class="row">
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => 'form-control' %>
+  </div>
+  <div class="row">
+    <%= f.label :password %>
+    <%= f.password_field :password, :class => 'form-control' %>
+  </div>
+  <%= f.submit :class => 'btn btn-primary' %>
+<% end %>

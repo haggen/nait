@@ -1,0 +1,15 @@
+<header>
+  <h2>Listing projects</h2>
+  <%= link_to fa('plus').concat(' New project'), new_project_path %>
+</header>
+
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= link_to project.name, project %>
+      &mdash;
+      <%= link_to fa('pencil'), edit_project_path(project) %>
+      <%= destroy_link fa('trash-o'), project %>
+    </li>
+  <% end %>
+</ul>
