@@ -1,3 +1,3 @@
 module Nait
-  VERSION = File.read('./version')
+  VERSION = ENV.fetch('VERSION', "#{`git rev-parse HEAD`[0..5]} R#{git rev-parse HEAD --count}")
 end
