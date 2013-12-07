@@ -9,6 +9,8 @@ class Project < ActiveRecord::Base
   has_many :memberships
   has_many :members, :through => :memberships, :source => :user
 
+  validates_presence_of :name, :manager_id
+
   def non_members
     User.all - members.to_a
   end
