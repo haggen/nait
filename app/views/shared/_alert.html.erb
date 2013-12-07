@@ -6,5 +6,5 @@
     <% when :warn %><%= fa('warning') %>
   <% end %>
 
-  <%= body %>
+  <%= message or body.call %>
 <% end %>

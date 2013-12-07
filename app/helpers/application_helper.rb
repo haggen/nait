@@ -13,7 +13,7 @@ module ApplicationHelper
     end.html_safe
   end
 
-  def alert(type, body)
-    render '/shared/alert', :type => type, :body => body
+  def alert(type, message = nil, &body)
+    render '/shared/alert', :type => type, :message => message, :body => body
   end
 end
