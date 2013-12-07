@@ -21,6 +21,10 @@
 
 en:
   are_you_sure: Are you sure ?
+  flash:
+    update: ! '%{name} updated.'
+    create: ! '%{name} created.'
+    destroy: ! '%{name} deleted.'
   errors:
     messages:
       not_found: not found

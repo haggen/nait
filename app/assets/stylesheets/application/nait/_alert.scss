@@ -1,0 +1,24 @@
+.alert {
+  color: #fff;
+  background: #8bf;
+  padding: 1em 1.618em;
+  width: 100%;
+
+  &.bad {
+    color: #fff;
+    background: #f88;
+  }
+
+  &.warn {
+    color: #fff;
+    background: #ec5;
+  }
+
+  &.info {
+  }
+
+  &.good {
+    color: #fff;
+    background: #6dc;
+  }
+}

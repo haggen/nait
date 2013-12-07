@@ -6,4 +6,14 @@ module ApplicationHelper
   def fa(name)
     content_tag :span, nil, :class => "fa fa-#{name}"
   end
+
+  def flash_alerts
+    flash.reduce('') do |n, f|
+      n.concat alert(*f)
+    end.html_safe
+  end
+
+  def alert(type, body)
+    render '/shared/alert', :type => type, :body => body
+  end
 end

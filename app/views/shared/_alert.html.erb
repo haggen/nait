@@ -1,1 +1,10 @@
-<%= content_tag :div, :class => "alert #{classes}", &body %>
+<%= content_tag :div, :class => "alert #{type}" do %>
+  <% case type
+       when :bad %><%= fa('exclamation-circle') %>
+    <% when :good %><%= fa('check-circle') %>
+    <% when :info %><%= fa('info-circle') %>
+    <% when :warn %><%= fa('warning') %>
+  <% end %>
+
+  <%= body %>
+<% end %>

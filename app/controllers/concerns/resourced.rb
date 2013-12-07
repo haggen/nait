@@ -74,7 +74,7 @@ module Resourced
     return if request.xhr?
     default = t("flash.#{action}", flash_params)
     params = flash_params.merge(:default => default)
-    flash[:notice] = t("flash.#{resource_name}.#{action}", params)
+    flash[:good] = t("flash.#{resource_name}.#{action}", params)
   end
 
   def flash_params
