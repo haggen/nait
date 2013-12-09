@@ -4,6 +4,10 @@ class ProjectsController < ApplicationController
 
   before_action :authenticate
 
+  scope :by_user, :default => true do |_, _, controller|
+    controller.current_user.projects
+  end
+
   def index
     fetch_resource
     respond_with_resource
