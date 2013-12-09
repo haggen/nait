@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20131209121224) do
   create_table "statuses", force: true do |t|
     t.string   "name"
     t.string   "color"
-    t.boolean  "closing"
+    t.boolean  "closing",    default: false
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
