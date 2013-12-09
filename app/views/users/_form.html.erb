@@ -4,21 +4,22 @@
 <% end if @user.errors.any? %>
 
 <%= form_for(@user) do |f| %>
+  <%= hidden_field_tag :next, next_path %>
   <div class="row">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="row">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
   </div>
   <div class="row">
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   <div class="row">
     <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
   <%= f.submit %>
 <% end %>
