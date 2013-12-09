@@ -1,7 +1,6 @@
 body {
   color: #000006;
-  font-family: Proxima Nova;
-  // font-size: 20px;
+  font: 18px "Proxima Nova";
 }
 
 address,
@@ -76,6 +75,20 @@ a {
   &:hover {
     color: inherit;
   }
+}
+
+.truncate {
+  display: inline-block;
+  max-width: 16em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.truncate-long {
+  @extend .truncate;
+
+  max-width: 32em;
 }
 
 .float-right {
