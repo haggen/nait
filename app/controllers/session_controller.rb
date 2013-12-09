@@ -8,7 +8,7 @@ class SessionController < ApplicationController
 
     if @session.valid?
       authorize! @session.user
-      redirect_to params[:next] || root_path
+      redirect_to next_path(root_path)
     else
       render :new
     end
