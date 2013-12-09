@@ -2,8 +2,10 @@ class Status < ActiveRecord::Base
   belongs_to :project
   has_many :entries
 
-  before_create do
-    self.sort = self.class.order('sort desc').select(:sort).first.sort + 1
+  validates_presence_of :name, :color, :sort
+
+  after_initialize do
+    self.sort = project.statuses.order(:sort).reverse.first.sort + 1 if sort.nil?
   end
 
   def move_up

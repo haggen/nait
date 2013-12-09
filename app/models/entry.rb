@@ -7,6 +7,8 @@ class Entry < ActiveRecord::Base
 
   has_many :logs
 
+  validates_presence_of :title
+
   after_initialize do
     self.estimate = 0 if self.estimate.nil?
   end
