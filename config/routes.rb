@@ -6,8 +6,13 @@ Nait::Application.routes.draw do
   resources :projects, :concerns => :commentable do
     resources :entries, :concerns => :commentable
     resources :memberships
-    resources :statuses
     resources :logs
+    
+    resources :statuses do
+      member do 
+        post :move_up, :move_down
+      end
+    end
   end
 
   resources :users
