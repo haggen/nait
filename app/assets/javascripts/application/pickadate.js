@@ -1,0 +1,1 @@
+$('input.pickadate').pickadate({format: 'yyyy-mm-dd'});

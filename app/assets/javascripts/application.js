@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require vendor/nprogress
+//= require vendor/pickadate/picker.js
+//= require vendor/pickadate/picker.date.js
 //= require_directory ./application

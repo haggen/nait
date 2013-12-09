@@ -35,8 +35,10 @@ textarea,
 
 button,
 #{$all-button-inputs} {
-  border: 0;
+  &.button {
+    border: 0;
 
-  @include appearance(none);
-  @extend .button;
+    @include appearance(none);
+    @extend .button;
+  }
 }
