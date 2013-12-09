@@ -65,6 +65,6 @@ class StatusesController < ApplicationController
   end
   
   def status_params
-    params.require(:status).permit(:name, :color, :closing)
+    params.require(:status).permit(:name, :color, :sort, :closing)
   end
 end
