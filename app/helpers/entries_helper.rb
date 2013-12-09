@@ -1,6 +1,6 @@
 module EntriesHelper
   def estimate_options
-    [0, 1, 2, 3, 5, 8, 13, 20, 40, 100]
+    t('options.estimate').to_a.map(&:reverse)
   end
 
   def status_options
