@@ -9,10 +9,6 @@ class Entry < ActiveRecord::Base
 
   validates_presence_of :title
 
-  after_initialize do
-    self.estimate = 0 if self.estimate.nil?
-  end
-
   scope :open, -> do
     statuses = Status.arel_table
     entries = Entry.arel_table
