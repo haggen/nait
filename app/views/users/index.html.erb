@@ -8,9 +8,7 @@
     <% @users.each do |user| %>
       <li>
         <%= user.name %>
-        &mdash;
-        <%= link_to fa('pencil'), edit_user_path(user) %>
-        <%= destroy_link fa('trash-o'), user %>
+        (<%= user.email %>)
       </li>
     <% end %>
   </ul>
