@@ -4,6 +4,10 @@ class StatusesController < ApplicationController
 
   before_action :authenticate
 
+  scope :sort, :default => true do |resource, _, _|
+    resource.order('sort asc')
+  end
+
   def index
     fetch_resource
     respond_with_resource
@@ -39,6 +43,18 @@ class StatusesController < ApplicationController
   def destroy
     fetch_resource
     flash_notice :destroy if destroy_resource
+    respond_with_resource
+  end
+
+  def move_up
+    fetch_resource
+    @status.move_up
+    respond_with_resource
+  end
+
+  def move_down
+    fetch_resource
+    @status.move_down
     respond_with_resource
   end
 
