@@ -29,9 +29,9 @@ class ProjectsController < ApplicationController
   def create
     new_resource
     @project.members.push current_user
-    @project.statuses.new(:name => 'Todo', :color => 'blue')
-    @project.statuses.new(:name => 'Doing', :color => 'yellow')
-    @project.statuses.new(:name => 'Done', :color => 'green', :closing => true)
+    @project.statuses.new(:name => 'Todo', :color => 'blue', :sort => 1)
+    @project.statuses.new(:name => 'Doing', :color => 'yellow', :sort => 2)
+    @project.statuses.new(:name => 'Done', :color => 'green', :closing => true, :sort => 3)
     flash_notice :create if save_resource
     respond_with_resource
   end
