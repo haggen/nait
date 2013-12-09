@@ -3,14 +3,14 @@
   <%= @session.errors.full_messages.to_sentence %>
 <% end if @session.errors.any? %>
 
-<%= form_for @session, :url => session_path, :html => {:class => 'form'} do |f| %>
+<%= form_for @session, :url => session_path do |f| %>
   <div class="row">
     <%= f.label :email %>
-    <%= f.text_field :email, :class => 'form-control' %>
+    <%= f.email_field :email %>
   </div>
   <div class="row">
     <%= f.label :password %>
-    <%= f.password_field :password, :class => 'form-control' %>
+    <%= f.password_field :password %>
   </div>
-  <%= f.submit :class => 'btn btn-primary' %>
+  <%= f.submit %>
 <% end %>
