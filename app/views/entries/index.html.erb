@@ -8,9 +8,8 @@
     <% @entries.each do |entry| %>
       <li>
         <%= render entry.status if entry.status %>
-        <%= link_to entry.title, current_project_entry_path(entry) %>
-
-        <%= fa('clock-o').concat " #{entry.estimate}" unless entry.estimate.blank? %>
+        <%= link_to entry.title, current_project_entry_path(entry), :class => 'truncate-long' %>
+        <%= fa('clock-o').concat " #{entry.log_sum}/#{entry.estimate}" %>
         &mdash;
         <%= link_to fa('pencil'), edit_current_project_entry_path(entry) %>
         <%= destroy_link fa('trash-o'), current_project_entry_path(entry) %>
