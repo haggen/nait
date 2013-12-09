@@ -32,6 +32,7 @@ class UsersController < ApplicationController
 
   def update
     fetch_resource
+    @response_location = next_path(nil)
     flash_notice :update if save_resource
     respond_with_resource
   end
