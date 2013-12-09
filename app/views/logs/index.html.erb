@@ -12,7 +12,12 @@
         <ul>
           <% logs.each do |log| %>
             <li>
-              <strong><%= log.author.name %></strong> logged <strong><%= pluralize(log.value, 'hours') %></strong>
+              <strong><%= log.author.first_name %></strong>
+              logged
+              <strong><%= pluralize(log.value, 'hours') %></strong>
+              <% if log.entry %>
+              for <%= link_to log.entry.title, project_entry_path(current_project, log.entry), :class => 'truncate' %>
+              <% end %>
               &mdash;
               <%= link_to fa('pencil'), edit_current_project_log_path(log) %>
               <%= destroy_link fa('trash-o'), current_project_log_path(log) %>
