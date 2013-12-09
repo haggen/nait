@@ -13,6 +13,13 @@ class Entry < ActiveRecord::Base
     self.estimate = 0 if self.estimate.nil?
   end
 
+  scope :open, -> do
+    statuses = Status.arel_table
+    entries = Entry.arel_table
+
+    includes(:status).where statuses[:closing].eq(false).or(entries[:status_id].eq(nil))
+  end
+
   def log_sum
     logs.sum(:value)
   end
