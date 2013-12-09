@@ -6,4 +6,12 @@ class Entry < ActiveRecord::Base
   belongs_to :status
 
   has_many :logs
+
+  after_initialize do
+    self.estimate = 0 if self.estimate.nil?
+  end
+
+  def log_sum
+    logs.sum(:value)
+  end
 end
