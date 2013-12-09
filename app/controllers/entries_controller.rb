@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   before_action :authenticate
 
   scope :sort, :default => true do |resource, _, _|
-    resource.joins(:status).order('statuses.sort asc')
+    resource.includes(:status).order('statuses.sort asc')
   end
 
   def index
