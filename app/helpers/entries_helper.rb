@@ -4,6 +4,6 @@ module EntriesHelper
   end
 
   def status_options
-    current_project.statuses.order(:closing, :name).reverse
+    current_project.statuses.order(:sort)
   end
 end
