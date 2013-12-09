@@ -7,7 +7,8 @@ class Status < ActiveRecord::Base
   end
 
   def move_up
-    target = self.class.where('sort < ?', sort).order('sort desc').first
+    arel = self.class.arel_table
+    target = project.statuses.where(arel[:sort].lt(sort)).order(:sort).reverse.first
 
     if target
       target.update_attribute(:sort, sort)
@@ -16,7 +17,8 @@ class Status < ActiveRecord::Base
   end
 
   def move_down
-    target = self.class.where('sort > ?', sort).order('sort asc').first
+    arel = self.class.arel_table
+    target = project.statuses.where(arel[:sort].gt(sort)).order(:sort).first
 
     if target
       target.update_attribute(:sort, sort)
