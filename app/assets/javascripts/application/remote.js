@@ -1,3 +1,3 @@
-$(document).on('click', 'a[data-remote]', function() {
+$(document).on('ajax:complete', 'a[data-remote]', function() {
   Turbolinks.visit(location.pathname);
 });
