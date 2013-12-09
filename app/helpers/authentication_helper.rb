@@ -1,4 +1,8 @@
 module AuthenticationHelper
+  def next_path(default = request.referrer)
+    params[:next] || default
+  end
+
   def authenticate
     if request.headers['HTTP_AUTHORIZATION']
       authenticate_with_http_basic do |email, password|
