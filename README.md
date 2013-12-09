@@ -11,21 +11,21 @@
 ## Summary
 
 **Nait** is a simple entry tracker with the ability to log hours.
-An entry might be an issue in your site, a task, or a simply memo to yourself.
-You can assign it a status - or simply a tag - which you can customize the name and color.
-Entries and time logs are categorized by projects.
+An entry might be an issue, a task, or a simple topic of discussion.
+You can tag it with a status and log time spent. Everything is categorized by a project.
 
-Things will evolve from here. Project manager will have elevated permissions, there will be discussion boards to projects and entries, packages with due date, calendar, activity history, and much more.
-But for now, its primary goal is to aid me, so the priorities will be set accordingly.
+Things will evolve from here. Users will have different roles and permissions, there will be discussion boards, packages to group entries with a same due date, calendar view, activity history, and much more.
+But for now, its primary goal is to aid me in my own projects, so the priorities will be set accordingly.
 
 ## Tech stuff
 
+- Git
 - Rails 4
 - PostgreSQL 9
-- Git
 
 ```shell
 $ bundle install
-$ rake db:setup
+$ rake db:migrate
+$ rake db:seed
 $ rails server
 ```
