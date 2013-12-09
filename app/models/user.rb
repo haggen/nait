@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name
 
+  def first_name
+    name.split.first
+  end
+
   def avatar(size = 32)
     hash = Digest::MD5.hexdigest(email)
     "//gravatar.com/avatar/#{hash}.jpg?s=#{size}"
