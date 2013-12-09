@@ -4,6 +4,10 @@ class LogsController < ApplicationController
 
   before_action :authenticate
 
+  scope :sort, :default => true do |resource, _, _|
+    resource.order('date desc')
+  end
+
   def index
     fetch_resource
     respond_with_resource
