@@ -12,7 +12,5 @@
     <%= f.label :manager_id %>
     <%= f.collection_select :manager_id, @project.members, :id, :name, :prompt => 'Choose a manager' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit :class => 'button' %>
 <% end %>

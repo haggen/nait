@@ -2,12 +2,12 @@
   <h2>Summary</h2>
 
   <% if current_project.manager == current_user %>
-  <ul class="inline">
-    <li><%= link_to fa('pencil').concat(' Edit'), edit_project_path(current_project) %></li>
-    <li><%= link_to fa('users').concat(' Members'), project_memberships_path(@project) %></li>
-    <li><%= link_to fa('tags').concat(' Statuses'), project_statuses_path(@project) %></li>
-    <li><%= destroy_link fa('trash-o').concat(' Delete'), current_project %></li>
-  </ul>
+    <ul class="inline">
+      <li><%= link_to fa('pencil').concat(' Edit'), edit_project_path(current_project) %></li>
+      <li><%= link_to fa('users').concat(' Members'), project_memberships_path(@project) %></li>
+      <li><%= link_to fa('tags').concat(' Statuses'), project_statuses_path(@project) %></li>
+      <li><%= destroy_link fa('trash-o').concat(' Delete'), current_project %></li>
+    </ul>
   <% end %>
 </header>
 
@@ -35,6 +35,6 @@
   <div class="row">
     <%= f.text_area :content %>
   </div>
-  <%= f.submit %>
+  <%= f.submit :class => 'button' %>
 <% end %>
 -->

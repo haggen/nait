@@ -1,16 +1,9 @@
+<%= alert :bad do %>
+  <%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:
+  <%= @status.errors.full_messages.to_sentence %>
+<% end if @status.errors.any? %>
+
 <%= form_for [current_project, @status] do |f| %>
-  <% if @status.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
-
-      <ul>
-      <% @status.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="row">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -29,5 +22,5 @@
       Closing ?
     </label>
   </div>
-  <%= f.submit %>
+  <%= f.submit :class => 'button' %>
 <% end %>
