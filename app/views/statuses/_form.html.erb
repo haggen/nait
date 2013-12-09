@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="row">
+    <%= f.label :sort %>
+    <%= f.number_field :sort %>
+  </div>
+  <div class="row">
     <%= f.label :color %>
     <%= f.select :color, color_options, :prompt => 'Choose a color' %>
   </div>
