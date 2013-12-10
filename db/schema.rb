@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20131207030509) do
 
   add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+  add_index "comments", ["created_at"], name: "index_comments_on_created_at", using: :btree
 
   create_table "entries", force: true do |t|
     t.string   "title"
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20131207030509) do
   end
 
   add_index "statuses", ["project_id"], name: "index_statuses_on_project_id", using: :btree
+  add_index "statuses", ["sort"], name: "index_statuses_on_sort", using: :btree
 
   create_table "time_records", force: true do |t|
     t.date     "date"
