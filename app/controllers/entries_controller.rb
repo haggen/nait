@@ -52,7 +52,11 @@ class EntriesController < ApplicationController
     current_project
   end
 
-  def entry_params
+  def create_entry_params
+    params.require(:entry).permit(:title, :description, :estimate, :status_id).update(:author => current_user)
+  end
+
+  def update_entry_params
     params.require(:entry).permit(:title, :description, :estimate, :status_id)
   end
 end
