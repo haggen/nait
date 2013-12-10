@@ -1,5 +1,5 @@
 <header>
-  <h2>Showing entry</h2>
+  <h1>Showing entry</h1>
 
   <ul class="inline">
     <li><%= link_to fa('arrow-left').concat(' Back'), project_entries_path(current_project) %></li>
@@ -10,23 +10,27 @@
 
 <%= flash_alerts %>
 
-<h3><%= @entry.title %></h3>
+<article class="entry">
+  <h2 class="no-margin"><%= @entry.title %></h2>
 
-<% if @entry.status %>
-  <p><%= render @entry.status %></p>
-<% end %>
+  <p>
+    <%= render @entry.status if @entry.status %>
+    &mdash;
+    <strong><%= @entry.author.short_name %></strong>,
+    added on <%= l @entry.created_at, :format => :short %>.
+    <%= fa('clock-o') %>
+    <strong><%= @entry.time_recorded.to_s.concat "/#{@entry.estimate || 'None'}" %></strong>
+  </p>
 
-<% if @entry.description.blank? %>
-  <p>No description.</p>
-<% else %>
-  <%= simple_format @entry.description %>
-<% end %>
+  <% if @entry.description.blank? %>
+    <p>No description.</p>
+  <% else %>
+    <%= markdown_to_html @entry.description %>
+  <% end %>
+</article>
 
-<!-- 
 <aside>
-  <header>
-    <h2>Comments</h2>
-  </header>
+  <h2>Follow up</h2>
 
   <% if @entry.comments.any? %>
     <div>
@@ -36,15 +40,11 @@
     <p>No comments.</p>
   <% end %>
 
-  <header>
-    <h3>New comment</h3>
-  </header>
-
   <%= form_for [current_project, @entry, @entry.comments.new] do |f| %>
     <div class="row">
-      <%= f.text_area :content %>
+      <%= f.label :content, 'New comment' %>
+      <%= f.text_area :content, :class => 'markdown', :rows => 5 %>
     </div>
     <%= f.submit :class => 'button' %>
   <% end %>
 </aside>
--->
