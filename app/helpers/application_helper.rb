@@ -1,3 +1,5 @@
+require 'rdiscount'
+
 module ApplicationHelper
   def destroy_link(text, href, options = {})
     link_to text, href, options.update(:method => :delete, :confirm => t('are_you_sure'))
@@ -19,5 +21,9 @@ module ApplicationHelper
 
   def next_path_field
     hidden_field_tag :next, next_path
+  end
+
+  def markdown_to_html(source)
+    RDiscount.new(source, :autolink, :filter_html).to_html.html_safe
   end
 end
