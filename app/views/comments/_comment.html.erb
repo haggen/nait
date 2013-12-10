@@ -1,4 +1,11 @@
 <blockquote>
-  <%= simple_format comment.content %>
-  <cite>&mdash; <%= image_tag comment.author.avatar %> <%= comment.author.name %>, <%= time_ago_in_words comment.created_at %></cite>
+  <%= markdown_to_html comment.content %>
+  <cite>
+    &mdash;
+    <%= comment.author.short_name %>, on <%= l comment.created_at, :format => :short %>
+    <% if can_manage_comment comment %>
+      <%= link_to fa('pencil'), edit_comment_path(comment) %>
+      <%= destroy_link fa('trash-o'), comment %>
+    <% end %>
+  </cite>
 </blockquote>
