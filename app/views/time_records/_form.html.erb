@@ -15,7 +15,7 @@
   </div>
   <div class="row">
     <%= f.label :entry_id %>
-    <%= f.collection_select :entry_id, current_project.entries.by_status, :id, :title, :include_blank => 'None', :selected => params[:entry] %>
+    <%= f.collection_select :entry_id, current_project.entries.by_status, :id, :title, :include_blank => 'None' %>
   </div>
   <%= f.submit :class => 'button' %>
 <% end %>
