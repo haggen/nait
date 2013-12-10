@@ -1,0 +1,93 @@
+main {
+  padding: 1.618em;
+
+  h1 {
+    font-size: 1.618em;
+  }
+
+  h2 {
+    font-size: 1.3483em;
+  }
+
+  h3 {
+    font-size: 1.1236em;
+  }
+
+  h3 {
+    font-size: .9363em;
+  }
+
+  form,
+  table,
+  aside,
+  header,
+  footer,
+  article,
+  blockquote {
+    margin-bottom: 1.618em;
+  }
+
+  p,
+  ul,
+  ol,
+  dl,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  pre {
+    margin-bottom: 1rem;
+  }
+
+  header {
+    & > :first-child {
+      margin-right: 1.618em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
+
+  ul,
+  ol {
+    padding-left: 2.427em;
+  }
+
+  li > ul,
+  li + li {
+    margin-top: .4045em;
+  }
+
+  blockquote {
+    padding: .809em;
+    font-size: .9em;
+    background: #f8f8ff;
+
+    @include clearfix;
+
+    img {
+      border-radius: 50%;
+      margin-bottom: .4045em;
+      display: block;
+    }
+
+    cite {
+      font-size: .9em;
+      color: #99999f;
+      width: 10em;
+    }
+  }  
+
+  .alert {
+    margin-bottom: 1em;
+  }
+}
