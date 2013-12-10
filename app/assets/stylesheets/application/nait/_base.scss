@@ -42,11 +42,6 @@ video {
   padding: 0;
 }
 
-ul,
-ol {
-  padding-left: 1.618em;
-}
-
 .inline {
   display: inline-block;
 }
@@ -77,93 +72,37 @@ a {
   }
 }
 
+pre,
+code {
+  font: .8em/1.4 Monaco;
+}
+
+p code {
+  background: #fffff0;
+}
+
 .truncate {
   display: inline-block;
-  max-width: 16em;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
 
-.truncate-long {
-  @extend .truncate;
+  &.short {
+    width: 16em;
+  }
 
-  max-width: 32em;
+  &.long {
+    max-width: 32em;
+  }
 }
 
 .float-right {
   float: right;
 }
 
-main {
-  padding: 1.618em;
-
-  p,
-  ul,
-  ol,
-  dl,
-  pre,
-  form,
-  table,
-  footer,
-  header,
-  blockquote {
-    margin-bottom: 1em;
-  }
-
-  header {
-    & > :first-child {
-      margin-right: 1.618em;
-    }
-
-    h2 {
-      display: inline-block;
-    }
-  }
-
-  li > ul,
-  li + li {
-    margin-top: .4045em;
-  }
-
-  blockquote {
-    background: #f8f8ff;
-    padding: .4045em;
-    position: relative;
-    margin-left: 3.5em;
-    box-shadow: -1px 0 #ccc;
-
-    &:after,
-    &:before {
-      content: "";
-      position: absolute;
-      top: 16px;
-      left: -19px;
-
-      @include triangle(20px, #f8f8ff, left);
-    }
-
-    &:before {
-      left: -20px;
-      border-right-color: #aaa;
-    }
-
-    img {
-      border-radius: 50%;
-      position: absolute;
-      top: 10px;
-      left: -3.5em;
-    }
-
-    cite {
-      font-size: .9em;
-      color: #99999f;
-    }
-  }  
-
-  .alert {
-    margin-bottom: 1em;
-  }
+.no-margin {
+  margin: 0 !important;
 }
 
 footer {
