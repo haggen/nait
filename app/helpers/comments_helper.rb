@@ -1,4 +1,8 @@
 module CommentsHelper
+  def can_manage_comment(comment, user = current_user)
+    current_project.manager == current_user || comment.author == current_user
+  end
+
   def commentable_comments_path(commentable)
     url_for [commentable, :comments]
   end
