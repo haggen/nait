@@ -25,7 +25,8 @@ But for now, its primary goal is to aid me in my own projects, so the priorities
 
 ```shell
 $ bundle install
-$ rake db:migrate
-$ rake db:seed
+$ rake db:setup
 $ rails server
 ```
+
+You may have to create the database manually: `$ createdb nait_development`.
