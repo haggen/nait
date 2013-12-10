@@ -16,4 +16,5 @@
 //= require vendor/nprogress
 //= require vendor/pickadate/picker.js
 //= require vendor/pickadate/picker.date.js
+//= require vendor/autosize
 //= require_directory ./application

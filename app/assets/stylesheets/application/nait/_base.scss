@@ -1,6 +1,7 @@
 body {
-  color: #000006;
-  font: 16px "Proxima Nova";
+  color: #222228;
+  // font: 16px "Proxima Nova";
+  font: 16px Helvetica Neue;
 }
 
 address,
@@ -42,6 +43,57 @@ video {
   padding: 0;
 }
 
+a {
+  color: #88888e;
+  // color: #99999f;
+  
+  @include transition(color .1s);
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+pre,
+code {
+  font: .8em/1.4 Monaco;
+}
+
+p code {
+  background: #fffff0;
+}
+
+footer {
+  border-top: 1px solid #f8f8ff;
+  font-size: .9em;
+  padding: 1.618em 0;
+  text-align: center;
+}
+
+.truncate {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &.short {
+    max-width: 16em;
+  }
+
+  &.long {
+    max-width: 32em;
+  }
+}
+
+.pull-right {
+  float: right;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
 .inline {
   display: inline-block;
 }
@@ -60,54 +112,4 @@ ol {
       margin-left: 1em;
     }
   }
-}
-
-a {
-  color: #99999f;
-  
-  @include transition(color .1s);
-
-  &:hover {
-    color: inherit;
-  }
-}
-
-pre,
-code {
-  font: .8em/1.4 Monaco;
-}
-
-p code {
-  background: #fffff0;
-}
-
-.truncate {
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  &.short {
-    width: 16em;
-  }
-
-  &.long {
-    max-width: 32em;
-  }
-}
-
-.float-right {
-  float: right;
-}
-
-.no-margin {
-  margin: 0 !important;
-}
-
-footer {
-  border-top: 1px solid #f8f8ff;
-  font-size: .9em;
-  padding: 1.618em 0;
-  text-align: center;
 }

@@ -45,6 +45,6 @@ button,
   }
 }
 
-textarea.markdown {
-  @extend code;
+textarea.autosize {
+  // @include transition(height .1s);
 }
