@@ -16,6 +16,7 @@ Nait::Application.routes.draw do
   end
 
   resources :users
+  resources :comments
   resource :session, :controller => :session
 
   root 'welcome#index'
