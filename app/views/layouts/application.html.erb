@@ -32,16 +32,18 @@
     <% end %>
   <% end %>
 
-  <ul class="float-right">
+  <ul class="pull-right">
     <% if current_user %>
       <li><%= link_to image_tag(current_user.avatar), edit_user_path(current_user) %></li>
       <li><%= link_to 'People', users_path %></li>
-      <li><%= link_to 'Quit', session_path, :method => :delete %></li>
+      <li><%= link_to 'Sign out', session_path, :method => :delete %></li>
     <% else %>
       <li><%= link_to 'Sign in', new_session_path %></li>
     <% end %>
   </ul>
 </nav>
+
+<%= flash_alerts %>
 
 <main>
   <%= yield %>

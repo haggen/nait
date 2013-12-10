@@ -3,8 +3,6 @@
   <%= link_to fa('plus').concat(' New time record'), new_project_time_record_path(current_project) %>
 </header>
 
-<%= flash_alerts %>
-
 <% if @time_records.any? %>
   <ul class="timeline">
     <% @time_records.group_by(&:date).each do |date, time_records| %>
@@ -18,7 +16,7 @@
               recorded
               <strong><%= pluralize(time_record.value, 'hours') %></strong>
               <% if time_record.entry %>
-              for <%= link_to time_record.entry.title, project_entry_path(current_project, time_record.entry), :class => 'truncate' %>
+              for <%= link_to time_record.entry.title, project_entry_path(current_project, time_record.entry), :class => 'truncate short' %>
               <% end %>
               &mdash;
               <%= link_to fa('pencil'), edit_project_time_record_path(current_project, time_record) %>

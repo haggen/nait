@@ -8,8 +8,6 @@
   </ul>
 </header>
 
-<%= flash_alerts %>
-
 <article class="entry">
   <h2 class="no-margin"><%= @entry.title %></h2>
 
@@ -43,7 +41,7 @@
   <%= form_for [current_project, @entry, @entry.comments.new] do |f| %>
     <div class="row">
       <%= f.label :content, 'New comment' %>
-      <%= f.text_area :content, :class => 'markdown', :rows => 5 %>
+      <%= f.text_area :content, :class => 'autosize' %>
     </div>
     <%= f.submit :class => 'button' %>
   <% end %>
