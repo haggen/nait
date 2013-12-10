@@ -1,0 +1,13 @@
+<%= alert :error do %>
+  <%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:
+  <%= @comment.errors.full_messages.to_sentence %>
+<% end if @comment.errors.any? %>
+
+<%= form_for(@comment) do |f| %>
+  <%= next_path_field %>
+  <div class="row">
+    <%= f.label :content %>
+    <%= f.text_area :content, :class => 'markdown', :rows => 5 %>
+  </div>
+  <%= f.submit :class => 'button' %>
+<% end %>
