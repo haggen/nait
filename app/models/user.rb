@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name
 
-  def first_name
-    name.split.first
+  def short_name
+    names = name.split
+    names.first.concat names.size > 1 ? ' ' + names.last[0] : ''
   end
 
   def avatar(size = 32)
