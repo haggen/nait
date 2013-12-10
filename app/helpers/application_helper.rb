@@ -16,4 +16,8 @@ module ApplicationHelper
   def alert(type, message = nil, &body)
     render '/shared/alert', :type => type, :message => message, :body => body
   end
+
+  def next_path_field
+    hidden_field_tag :next, next_path
+  end
 end

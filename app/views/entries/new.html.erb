@@ -1,6 +1,6 @@
 <header>
   <h2>New entry</h2>
-  <%= link_to fa('arrow-left').concat(' Back'), current_project_entries_path %>
+  <%= link_to fa('arrow-left').concat(' Back'), project_entries_path(current_project) %>
 </header>
 
 <%= render 'form' %>

@@ -1,6 +1,6 @@
 <header>
   <h2>Editting status</h2>
-  <%= link_to fa('arrow-left').concat(' Back'), current_project_statuses_path %>
+  <%= link_to fa('arrow-left').concat(' Back'), project_statuses_path(current_project) %>
 </header>
 
 <%= render 'form' %>

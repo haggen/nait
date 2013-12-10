@@ -3,6 +3,8 @@
   <%= link_to fa('plus').concat(' New project'), new_project_path %>
 </header>
 
+<%= flash_alerts %>
+
 <% if @projects.any? %>
 <ul>
   <% @projects.each do |project| %>

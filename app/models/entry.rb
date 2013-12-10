@@ -5,18 +5,21 @@ class Entry < ActiveRecord::Base
   belongs_to :project
   belongs_to :status
 
-  has_many :logs
+  has_many :time_records
 
   validates_presence_of :title
 
-  scope :open, -> do
+  scope :by_status, -> do
     statuses = Status.arel_table
-    entries = Entry.arel_table
+    includes(:status).order(statuses[:sort].asc)
+  end
 
+  scope :open, -> do
+    statuses, entries = Status.arel_table, Entry.arel_table
     includes(:status).where statuses[:closing].eq(false).or(entries[:status_id].eq(nil))
   end
 
-  def log_sum
-    logs.sum(:value)
+  def time_recorded
+    time_records.sum(:value)
   end
 end

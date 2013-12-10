@@ -4,9 +4,9 @@ class CreateEntries < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.float :estimate
-      t.references :author, index: true
-      t.references :project, index: true
-      t.references :status, index: true
+      t.references :author, :index => true
+      t.references :project, :index => true
+      t.references :status, :index => true
 
       t.timestamps
     end

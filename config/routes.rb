@@ -6,7 +6,7 @@ Nait::Application.routes.draw do
   resources :projects, :concerns => :commentable do
     resources :entries, :concerns => :commentable
     resources :memberships
-    resources :logs
+    resources :time_records
     
     resources :statuses do
       member do 

@@ -4,8 +4,8 @@ class CreateProjects < ActiveRecord::Migration
 
     create_table :projects do |t|
       t.string :name
-      t.references :manager, index: true
       t.hstore :options
+      t.references :manager, index: true
 
       t.timestamps
     end

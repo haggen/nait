@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209121224) do
+ActiveRecord::Schema.define(version: 20131207030509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,20 +44,6 @@ ActiveRecord::Schema.define(version: 20131209121224) do
   add_index "entries", ["project_id"], name: "index_entries_on_project_id", using: :btree
   add_index "entries", ["status_id"], name: "index_entries_on_status_id", using: :btree
 
-  create_table "logs", force: true do |t|
-    t.date     "date"
-    t.float    "value"
-    t.integer  "author_id"
-    t.integer  "entry_id"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "logs", ["author_id"], name: "index_logs_on_author_id", using: :btree
-  add_index "logs", ["entry_id"], name: "index_logs_on_entry_id", using: :btree
-  add_index "logs", ["project_id"], name: "index_logs_on_project_id", using: :btree
-
   create_table "memberships", force: true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
@@ -70,8 +56,8 @@ ActiveRecord::Schema.define(version: 20131209121224) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
-    t.integer  "manager_id"
     t.hstore   "options"
+    t.integer  "manager_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -79,14 +65,30 @@ ActiveRecord::Schema.define(version: 20131209121224) do
   add_index "projects", ["manager_id"], name: "index_projects_on_manager_id", using: :btree
 
   create_table "statuses", force: true do |t|
+    t.integer  "sort"
     t.string   "name"
     t.string   "color"
     t.boolean  "closing",    default: false
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "sort"
   end
+
+  add_index "statuses", ["project_id"], name: "index_statuses_on_project_id", using: :btree
+
+  create_table "time_records", force: true do |t|
+    t.date     "date"
+    t.float    "value"
+    t.integer  "author_id"
+    t.integer  "entry_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "time_records", ["author_id"], name: "index_time_records_on_author_id", using: :btree
+  add_index "time_records", ["entry_id"], name: "index_time_records_on_entry_id", using: :btree
+  add_index "time_records", ["project_id"], name: "index_time_records_on_project_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

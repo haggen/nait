@@ -3,7 +3,7 @@
 
   <ul class="inline">
     <li><%= link_to fa('arrow-left').concat(' Back'), current_project %></li>
-    <li><%= link_to fa('plus').concat(' New member'), new_current_project_membership_path %></li>
+    <li><%= link_to fa('plus').concat(' New member'), new_project_membership_path(current_project) %></li>
   </ul>
 </header>
 
@@ -13,7 +13,7 @@
       <li>
         <%= membership.user.name %>
         &mdash;
-        <%= destroy_link fa('trash-o'), current_project_membership_path(membership) %>
+        <%= destroy_link fa('trash-o'), project_membership_path(current_project, membership) %>
       </li>
     <% end %>
   </ul>

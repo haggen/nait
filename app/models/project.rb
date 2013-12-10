@@ -3,10 +3,10 @@ class Project < ActiveRecord::Base
 
   belongs_to :manager, :class_name => 'User'
 
-  has_many :logs, :dependent => :destroy
-  has_many :entries, :dependent => :destroy
-  has_many :statuses, :dependent => :destroy
+  has_many :time_records, :dependent => :destroy
   has_many :memberships, :dependent => :destroy
+  has_many :statuses, :dependent => :destroy
+  has_many :entries, :dependent => :destroy
   has_many :members, :through => :memberships, :source => :user
 
   validates_presence_of :name, :manager_id

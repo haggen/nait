@@ -22,8 +22,8 @@
 
       <ul>
         <li><%= link_to 'Summary', current_project_path %></li>
-        <li><%= link_to 'Entries', current_project_entries_path %></li>
-        <li><%= link_to 'Logs', current_project_logs_path %></li>
+        <li><%= link_to 'Entries', project_entries_path(current_project) %></li>
+        <li><%= link_to 'Time records', project_time_records_path(current_project) %></li>
       </ul>
     <% else %>
       <h2>
@@ -42,8 +42,6 @@
     <% end %>
   </ul>
 </nav>
-
-<%= flash_alerts %>
 
 <main>
   <%= yield %>

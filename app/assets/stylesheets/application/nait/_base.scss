@@ -1,6 +1,6 @@
 body {
   color: #000006;
-  font: 18px "Proxima Nova";
+  font: 16px "Proxima Nova";
 }
 
 address,
@@ -68,7 +68,7 @@ ol {
 }
 
 a {
-  color: #aaaaaf;
+  color: #99999f;
   
   @include transition(color .1s);
 
@@ -157,7 +157,7 @@ main {
 
     cite {
       font-size: .9em;
-      color: #aaaaaf;
+      color: #99999f;
     }
   }  
 

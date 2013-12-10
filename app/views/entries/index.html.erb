@@ -1,19 +1,21 @@
 <header>
   <h2>Listing entries</h2>
-  <%= link_to fa('plus').concat(' New entry'), new_current_project_entry_path %>
+  <%= link_to fa('plus').concat(' New entry'), new_project_entry_path(current_project) %>
 </header>
+
+<%= flash_alerts %>
 
 <% if @entries.any? %>
   <ul>
     <% @entries.each do |entry| %>
       <li>
         <%= render entry.status if entry.status %>
-        <%= link_to entry.title, current_project_entry_path(entry), :class => 'truncate-long' %>
+        <%= link_to entry.title, project_entry_path(current_project, entry), :class => 'truncate-long' %>
         <%= fa('clock-o') %>
-        <%= entry.log_sum.to_s.concat "/#{entry.estimate || 'None'}" %>
+        <%= entry.time_recorded.to_s.concat "/#{entry.estimate || 'None'}" %>
         &mdash;
-        <%= link_to fa('pencil'), edit_current_project_entry_path(entry) %>
-        <%= destroy_link fa('trash-o'), current_project_entry_path(entry) %>
+        <%= link_to fa('pencil'), edit_project_entry_path(current_project, entry) %>
+        <%= destroy_link fa('trash-o'), project_entry_path(current_project, entry) %>
       </li>
     <% end %>
   </ul>

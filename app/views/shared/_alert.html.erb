@@ -1,9 +1,9 @@
 <%= content_tag :div, :class => "alert #{type}" do %>
   <% case type
-       when :bad %><%= fa('exclamation-circle') %>
-    <% when :good %><%= fa('check-circle') %>
-    <% when :info %><%= fa('info-circle') %>
-    <% when :warn %><%= fa('warning') %>
+       when :error %><%= fa('exclamation-circle') %>
+    <% when :success %><%= fa('check-circle') %>
+    <% when :warning %><%= fa('warning') %>
+    <% else %><%= fa('info-circle') %>
   <% end %>
 
   <%= message or body.call %>

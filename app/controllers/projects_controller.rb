@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
 
   def new
     new_resource
+    @project.manager = current_user
     @project.members.push current_user
     respond_with_resource
   end

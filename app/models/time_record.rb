@@ -1,4 +1,4 @@
-class Log < ActiveRecord::Base
+class TimeRecord < ActiveRecord::Base
   include Authorable
 
   belongs_to :project

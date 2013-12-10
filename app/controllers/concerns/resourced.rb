@@ -67,14 +67,14 @@ module Resourced
   end
 
   def response_location
-    @response_location or url_for [parent_resource, resource_name.pluralize]
+    next_path || url_for([parent_resource, resource_name.pluralize])
   end
 
   def flash_notice(action)
     return if request.xhr?
     default = t("flash.#{action}", flash_params)
     params = flash_params.merge(:default => default)
-    flash[:good] = t("flash.#{resource_name}.#{action}", params)
+    flash[:success] = t("flash.#{resource_name}.#{action}", params)
   end
 
   def flash_params

@@ -1,6 +1,6 @@
 <header>
   <h2>New member</h2>
-  <%= link_to fa('arrow-left').concat(' Back'), current_project_memberships_path %>
+  <%= link_to fa('arrow-left').concat(' Back'), project_memberships_path(current_project) %>
 </header>
 
 <%= render 'form' %>

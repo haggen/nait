@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.1'
+gem 'rdiscount'
 gem 'bourbon'
 gem 'pg'
 

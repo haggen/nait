@@ -1,0 +1,34 @@
+<header>
+  <h2>Listing time records</h2>
+  <%= link_to fa('plus').concat(' New time record'), new_project_time_record_path(current_project) %>
+</header>
+
+<%= flash_alerts %>
+
+<% if @time_records.any? %>
+  <ul class="timeline">
+    <% @time_records.group_by(&:date).each do |date, time_records| %>
+      <li>
+        <%= date %>
+
+        <ul>
+          <% time_records.each do |time_record| %>
+            <li>
+              <strong><%= time_record.author.first_name %></strong>
+              recorded
+              <strong><%= pluralize(time_record.value, 'hours') %></strong>
+              <% if time_record.entry %>
+              for <%= link_to time_record.entry.title, project_entry_path(current_project, time_record.entry), :class => 'truncate' %>
+              <% end %>
+              &mdash;
+              <%= link_to fa('pencil'), edit_project_time_record_path(current_project, time_record) %>
+              <%= destroy_link fa('trash-o'), project_time_record_path(current_project, time_record) %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No time recorded.</p>
+<% end %>

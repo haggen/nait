@@ -3,9 +3,11 @@
 
   <ul class="inline">
     <li><%= link_to fa('arrow-left').concat(' Back'), current_project %></li>
-    <li><%= link_to fa('plus').concat(' New status'), new_current_project_status_path %></li>
+    <li><%= link_to fa('plus').concat(' New status'), new_project_status_path(current_project) %></li>
   </ul>
 </header>
+
+<%= flash_alerts %>
 
 <% if @statuses.any? %>
   <ol>
@@ -13,10 +15,10 @@
       <li>
         <%= content_tag :span, status.name, :class => "tag #{status.color}" %>
         &mdash;
-        <%= link_to fa('hand-o-up'), move_up_project_status_path(current_project, status), :method => :post, :remote => true %>
-        <%= link_to fa('hand-o-down'), move_down_project_status_path(current_project, status), :method => :post, :remote => true %>
-        <%= link_to fa('pencil'), edit_current_project_status_path(status) %>
-        <%= destroy_link fa('trash-o'), current_project_status_path(status) %>
+        <%= link_to fa('arrow-up'), move_up_project_status_path(current_project, status), :method => :post, :remote => true %>
+        <%= link_to fa('arrow-down'), move_down_project_status_path(current_project, status), :method => :post, :remote => true %>
+        <%= link_to fa('pencil'), edit_project_status_path(current_project, status) %>
+        <%= destroy_link fa('trash-o'), project_status_path(current_project, status) %>
       </li>
     <% end %>
   </ol>

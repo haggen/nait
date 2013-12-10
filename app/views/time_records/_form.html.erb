@@ -1,0 +1,21 @@
+<%= alert :error do %>
+  <%= pluralize(@time_record.errors.count, "error") %> prohibited this time record from being saved:
+  <%= @time_record.errors.full_messages.to_sentence %>
+<% end if @time_record.errors.any? %>
+
+<%= form_for [current_project, @time_record] do |f| %>
+  <%= next_path_field %>
+  <div class="row">
+    <%= f.label :date %>
+    <%= f.text_field :date, :class => 'pickadate' %>
+  </div>
+  <div class="row">
+    <%= f.label :value %>
+    <%= f.number_field :value %>
+  </div>
+  <div class="row">
+    <%= f.label :entry_id %>
+    <%= f.collection_select :entry_id, current_project.entries.by_status, :id, :title, :include_blank => 'None', :selected => params[:entry] %>
+  </div>
+  <%= f.submit :class => 'button' %>
+<% end %>

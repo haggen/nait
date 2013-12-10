@@ -1,9 +1,10 @@
-<%= alert :bad do %>
+<%= alert :error do %>
   <%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:
   <%= @status.errors.full_messages.to_sentence %>
 <% end if @status.errors.any? %>
 
 <%= form_for [current_project, @status] do |f| %>
+  <%= next_path_field %>
   <div class="row">
     <%= f.label :name %>
     <%= f.text_field :name %>

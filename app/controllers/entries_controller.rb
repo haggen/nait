@@ -4,8 +4,8 @@ class EntriesController < ApplicationController
 
   before_action :authenticate
 
-  scope :sort, :default => true do |resource, _, _|
-    resource.includes(:status).order('statuses.sort asc')
+  scope :by_status, :default => true do |resource, _, _|
+    resource.by_status
   end
 
   def index

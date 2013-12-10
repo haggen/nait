@@ -1,16 +1,10 @@
+<%= alert :error do %>
+  <%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:
+  <%= @membership.errors.full_messages.to_sentence %>
+<% end if @membership.errors.any? %>
+
 <%= form_for [current_project, @membership] do |f| %>
-  <% if @membership.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
-
-      <ul>
-      <% @membership.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= next_path_field %>
   <div class="row">
     <%= f.label :user_id %>
     <%= f.collection_select :user_id, current_project.non_members, :id, :name, :prompt => 'Choose an user' %>

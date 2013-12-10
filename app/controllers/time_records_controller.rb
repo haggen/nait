@@ -1,4 +1,4 @@
-class LogsController < ApplicationController
+class TimeRecordsController < ApplicationController
   include Resourced
   include Scopable
 
@@ -52,11 +52,11 @@ class LogsController < ApplicationController
     current_project
   end
 
-  def create_log_params
-    params.require(:log).permit(:date, :value, :entry_id).update(:author => current_user)
+  def create_time_record_params
+    params.require(:time_record).permit(:date, :value, :entry_id).update(:author => current_user)
   end
 
-  def update_log_params
-    params.require(:log).permit(:date, :value, :entry_id)
+  def update_time_record_params
+    params.require(:time_record).permit(:date, :value, :entry_id)
   end
 end

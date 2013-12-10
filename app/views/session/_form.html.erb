@@ -1,9 +1,10 @@
-<%= alert :bad do %>
+<%= alert :error do %>
   <%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:
   <%= @session.errors.full_messages.to_sentence %>
 <% end if @session.errors.any? %>
 
 <%= form_for @session, :url => session_path do |f| %>
+  <%= next_path_field %>
   <div class="row">
     <%= f.label :email %>
     <%= f.email_field :email %>
