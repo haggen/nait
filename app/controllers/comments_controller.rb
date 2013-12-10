@@ -45,11 +45,12 @@ class CommentsController < ApplicationController
   protected
 
   def commentable_name
-    request.path.split('/comments')[0].split('/')[-2].singularize
+    name = request.path.split('/comments')[0].split('/')[-2]
+    name ? name.singularize : nil
   end
 
   def commentable
-    commentable_name.classify.constantize
+    commentable_name && commentable_name.classify.constantize
   end
 
   def commentable_id
@@ -57,11 +58,11 @@ class CommentsController < ApplicationController
   end
 
   def parent_resource
-    commentable.find(commentable_id)
+    commentable && commentable.find(commentable_id)
   end
 
   def response_location
-    url_for request.referrer
+    next_path
   end
 
   def create_comment_params
@@ -73,6 +74,6 @@ class CommentsController < ApplicationController
   end
 
   def flash_params
-    {}
+    {:name => resource.model_name.human}
   end
 end
