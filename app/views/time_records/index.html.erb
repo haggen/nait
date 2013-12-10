@@ -1,5 +1,5 @@
 <header>
-  <h2>Listing time records</h2>
+  <h1>Listing time records</h1>
   <%= link_to fa('plus').concat(' New time record'), new_project_time_record_path(current_project) %>
 </header>
 
@@ -14,7 +14,7 @@
         <ul>
           <% time_records.each do |time_record| %>
             <li>
-              <strong><%= time_record.author.first_name %></strong>
+              <strong><%= time_record.author.short_name %></strong>
               recorded
               <strong><%= pluralize(time_record.value, 'hours') %></strong>
               <% if time_record.entry %>
