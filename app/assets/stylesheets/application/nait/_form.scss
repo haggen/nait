@@ -5,10 +5,20 @@ form {
     margin-bottom: 1em;
 
     label {
-      color: #aaaaaf;
+      color: #ccccd2;
       display: block;
       font-size: .8em;
       text-transform: uppercase;
+
+      &.item {
+        font-size: inherit;
+        text-transform: none;
+      }
+
+      &.inline {
+        display: inline-block;
+        margin-right: 1em;
+      }
     }
   }
 }
@@ -17,21 +27,21 @@ select,
 textarea,
 #{$all-text-inputs} {
   background: #fff;
-  border: 1px solid #dddddf;
+  border: 1px solid #ccccd2;
   border-radius: 2px;
   box-sizing: border-box;
-  color: #aaaaaf;
+  color: #88888e;
   font-size: 1em;
+  max-width: 100%;
   padding: .4045em;
   width: 100%;
-  max-width: 100%;
 
   @include appearance(none);
 
   &:focus {
-    outline: none;
-    border-color: #aaaaaf;
+    border-color: #88888e;
     color: inherit;
+    outline: none;
   }
 }
 
@@ -43,8 +53,4 @@ button,
     @include appearance(none);
     @extend .button;
   }
-}
-
-textarea.autosize {
-  // @include transition(height .1s);
 }

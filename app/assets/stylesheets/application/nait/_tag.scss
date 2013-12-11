@@ -1,23 +1,40 @@
 span.tag {
+  background: #ccccd2;
   font-size: .8em;
   font-weight: 500;
   border-radius: 2px;
   color: #fff;
   padding: 1px 3px;
-
+  
   &.red {
-    background: #f88;
+    background: $red;
+  }
+
+  &.orange {
+    background: $orange;
   }
 
   &.yellow {
-    background: #ec5;
+    background: $yellow;
   }
 
-  &.blue {
-    background: #8bf;
+  &.yellow {
+    background: $yellow;
   }
 
   &.green {
-    background: #6dc;
+    background: $green;
+  }
+
+  &.aqua {
+    background: $aqua;
+  }
+
+  &.blue {
+    background: $blue;
+  }
+
+  &.purple {
+    background: $purple;
   }
 }

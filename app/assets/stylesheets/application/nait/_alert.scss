@@ -1,21 +1,36 @@
 .alert {
+  background: $blue;
   color: #fff;
-  background: #8bf;
   padding: 1em 1.618em;
-  // width: 100%;
-
+  
+  &.red,
   &.error {
-    color: #fff;
-    background: #f88;
+    background: $red;
   }
 
-  &.notice {
-    color: #fff;
-    background: #ec5;
+  &.orange {
+    background: $orange;
   }
 
+  &.notice,
+  &.yellow {
+    background: $yellow;
+  }
+
+  &.yellow {
+    background: $yellow;
+  }
+
+  &.green {
+    background: $green;
+  }
+
+  &.aqua,
   &.success {
-    color: #fff;
-    background: #6dc;
+    background: $aqua;
+  }
+
+  &.purple {
+    background: $purple;
   }
 }
