@@ -42,6 +42,12 @@ video {
   padding: 0;
 }
 
+h1,
+h2,
+h3 {
+  font-weight: 200;
+}
+
 a {
   color: #88888e;
   
@@ -62,7 +68,7 @@ p code {
 }
 
 footer {
-  border-top: 1px solid #f2f2f8;
+  border-top: 1px solid #f4f4fa;
   font-size: .9em;
   padding: 1.618em 0;
   text-align: center;

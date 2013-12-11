@@ -5,12 +5,14 @@ form {
     margin-bottom: 1em;
 
     label {
-      color: #ccccd2;
+      color: #99999f;
       display: block;
+      font-weight: 200;
       font-size: .8em;
       text-transform: uppercase;
 
       &.item {
+        font-weight: inherit;
         font-size: inherit;
         text-transform: none;
       }
