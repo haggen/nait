@@ -20,7 +20,7 @@ class TimeRecordsController < ApplicationController
 
   def new
     new_resource
-    @time_record.entry = params[:entry]
+    @time_record.entry_id = params[:entry]
     respond_with_resource
   end
 
