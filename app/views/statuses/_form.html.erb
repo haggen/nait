@@ -14,14 +14,17 @@
     <%= f.number_field :sort %>
   </div>
   <div class="row">
-    <%= f.label :color %>
-    <%= f.select :color, color_options, :prompt => 'Choose a color' %>
+    <%= f.label :closing %>
+    <%= f.select :closing, [['No', false], ['Yes', true]] %>
   </div>
   <div class="row">
-    <label>
-      <%= f.check_box :closing %>
-      Closing ?
-    </label>
+    <%= f.label :color %>
+    <% color_options.each do |label, name| %>
+      <label class="item inline">
+        <%= f.radio_button :color, name %>
+        <%= content_tag :span, label, :class => "tag #{name}" %>
+      </label>
+    <% end %>
   </div>
   <%= f.submit :class => 'button' %>
 <% end %>
