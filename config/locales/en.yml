@@ -42,3 +42,11 @@ en:
       20.0: Up to 20 hours
       40.0: Up to 40 hours
       80.0: Up to 80 hours
+    color:
+      red: Red
+      orange: Orange
+      yellow: Yellow
+      green: Green
+      aqua: Aqua
+      blue: Blue
+      purple: Purple

@@ -1,7 +1,5 @@
 module StatusesHelper
   def color_options
-    %w(blue green yellow red).map do |color|
-      [color.titleize, color]
-    end
+    t('options.color').to_a.map(&:reverse)
   end
 end
