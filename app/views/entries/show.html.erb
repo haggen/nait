@@ -3,8 +3,9 @@
 
   <ul class="inline">
     <li><%= link_to fa('arrow-left').concat(' Back'), project_entries_path(current_project) %></li>
-    <li><%= link_to fa('clock-o').concat(' New time record'), new_project_time_record_path(current_project, :entry => @entry) %></li>
     <li><%= link_to fa('pencil').concat(' Edit'), edit_project_entry_path(current_project, @entry) %></li>
+    <li><%= link_to fa('clock-o').concat(' New time record'), new_project_time_record_path(current_project, :entry => @entry) %></li>
+    <li><%= destroy_link fa('trash-o').concat(' Delete'), project_entry_path(current_project, @entry) %></li>
   </ul>
 </header>
 

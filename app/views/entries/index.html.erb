@@ -11,9 +11,9 @@
         <%= link_to entry.title, project_entry_path(current_project, entry), :class => 'truncate long' %>
         <%= fa('clock-o') %>
         <%= entry.time_recorded.to_s.concat "/#{entry.estimate || 'None'}" %>
-        &mdash;
-        <%= link_to fa('pencil'), edit_project_entry_path(current_project, entry) %>
-        <%= destroy_link fa('trash-o'), project_entry_path(current_project, entry) %>
+        <!-- &mdash; -->
+        <!-- <%= link_to fa('pencil'), edit_project_entry_path(current_project, entry) %> -->
+        <!-- <%= destroy_link fa('trash-o'), project_entry_path(current_project, entry) %> -->
       </li>
     <% end %>
   </ul>

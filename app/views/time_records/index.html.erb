@@ -7,7 +7,7 @@
   <ul class="timeline">
     <% @time_records.group_by(&:date).each do |date, time_records| %>
       <li>
-        <%= date %>
+        <%= l date, :format => :short %>
 
         <ul>
           <% time_records.each do |time_record| %>
