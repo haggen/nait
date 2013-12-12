@@ -1,0 +1,11 @@
+.table {
+  width: 100%;
+
+  td {
+    padding: .5em .809em;
+  }
+
+  tr + tr td {
+    border-top: 1px solid #dddde3
+  }
+}
