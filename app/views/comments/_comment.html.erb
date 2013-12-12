@@ -4,6 +4,7 @@
     &mdash;
     <%= comment.author.short_name %>, on <%= l comment.created_at, :format => :short %>
     <% if can_manage_comment comment %>
+      -
       <%= link_to fa('pencil'), edit_comment_path(comment) %>
       <%= destroy_link fa('trash-o'), comment %>
     <% end %>

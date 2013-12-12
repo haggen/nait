@@ -12,12 +12,15 @@
   <h2 class="no-margin"><%= @entry.title %></h2>
 
   <p>
-    <%= render @entry.status if @entry.status %>
+  <cite>
     &mdash;
-    <strong><%= @entry.author.short_name %></strong>,
-    added on <%= l @entry.created_at, :format => :short %>.
+    <%= @entry.author.short_name %>,
+    on <%= l @entry.created_at, :format => :short %>
+    -
+    <%= render @entry.status if @entry.status %>
     <%= fa('clock-o') %>
-    <strong><%= @entry.time_recorded.to_s.concat "/#{@entry.estimate || 'None'}" %></strong>
+    <%= @entry.time_recorded.to_s.concat "/#{@entry.estimate || 'None'}" %>
+    </cite>
   </p>
 
   <% if @entry.description.blank? %>
