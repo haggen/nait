@@ -1,36 +1,36 @@
 .alert {
-  background: $blue;
+  background: $BLUE;
   color: #fff;
   padding: 1em 1.618em;
   
   &.red,
   &.error {
-    background: $red;
+    background: $RED;
   }
 
   &.orange {
-    background: $orange;
+    background: $ORANGE;
   }
 
   &.notice,
   &.yellow {
-    background: $yellow;
+    background: $YELLOW;
   }
 
   &.yellow {
-    background: $yellow;
+    background: $YELLOW;
   }
 
   &.green {
-    background: $green;
+    background: $GREEN;
   }
 
   &.aqua,
   &.success {
-    background: $aqua;
+    background: $AQUA;
   }
 
   &.purple {
-    background: $purple;
+    background: $PURPLE;
   }
 }

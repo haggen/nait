@@ -44,12 +44,16 @@ video {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   font-weight: 200;
 }
 
 a {
-  color: #88888e;
+  color: #99999f;
+  text-decoration: none;
   
   @include transition(color .1s);
 
@@ -69,12 +73,7 @@ code {
   font: .8em/1.4 Monaco;
 }
 
-p code {
-  background: #fcf2b2;
-}
-
 footer {
-  border-top: 1px solid #f4f4fa;
   font-size: .9em;
   padding: 1.618em 0;
   text-align: center;
@@ -119,7 +118,7 @@ ol {
     }
 
     li + li {
-      margin-left: 1em;
+      margin-left: 1.618em;
     }
   }
 }
