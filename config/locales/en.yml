@@ -21,6 +21,9 @@
 
 en:
   are_you_sure: Are you sure ?
+  date:
+    formats:
+      short: ! '%Y-%m-%d'
   flash:
     update: ! '%{name} updated.'
     create: ! '%{name} created.'

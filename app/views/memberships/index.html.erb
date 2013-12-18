@@ -2,7 +2,6 @@
   <h1>Listing project members</h1>
 
   <ul class="inline">
-    <li><%= link_to fa('arrow-left').concat(' Back'), current_project %></li>
     <li><%= link_to fa('plus').concat(' New member'), new_project_membership_path(current_project) %></li>
   </ul>
 </header>
@@ -12,8 +11,11 @@
     <% @memberships.each do |membership| %>
       <li>
         <%= membership.user.name %>
-        &mdash;
-        <%= destroy_link fa('trash-o'), project_membership_path(current_project, membership) %>
+
+        <span class="hover">
+          &mdash;
+          <%= destroy_link fa('trash-o'), project_membership_path(current_project, membership) %>
+        </span>
       </li>
     <% end %>
   </ul>

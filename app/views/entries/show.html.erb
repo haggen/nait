@@ -3,8 +3,8 @@
 
   <ul class="inline">
     <li><%= link_to fa('arrow-left').concat(' Back'), project_entries_path(current_project) %></li>
-    <li><%= link_to fa('pencil').concat(' Edit'), edit_project_entry_path(current_project, @entry) %></li>
     <li><%= link_to fa('clock-o').concat(' New time record'), new_project_time_record_path(current_project, :entry => @entry) %></li>
+    <li><%= link_to fa('pencil').concat(' Edit'), edit_project_entry_path(current_project, @entry) %></li>
     <li><%= destroy_link fa('trash-o').concat(' Delete'), project_entry_path(current_project, @entry) %></li>
   </ul>
 </header>
@@ -29,24 +29,22 @@
   <% else %>
     <%= markdown_to_html @entry.description %>
   <% end %>
+
+  <aside>
+    <% if @entry.comments.any? %>
+      <div>
+        <%= render @entry.comments %>
+      </div>
+    <% else %>
+      <p>No comments.</p>
+    <% end %>
+
+    <%= form_for [current_project, @entry, @entry.comments.new] do |f| %>
+      <div class="row">
+        <%= f.label :content, 'New comment' %>
+        <%= f.text_area :content, :class => 'autosize' %>
+      </div>
+      <%= f.submit :class => 'button' %>
+    <% end %>
+  </aside>
 </article>
-
-<aside>
-  <h2>Follow up</h2>
-
-  <% if @entry.comments.any? %>
-    <div>
-      <%= render @entry.comments %>
-    </div>
-  <% else %>
-    <p>No comments.</p>
-  <% end %>
-
-  <%= form_for [current_project, @entry, @entry.comments.new] do |f| %>
-    <div class="row">
-      <%= f.label :content, 'New comment' %>
-      <%= f.text_area :content, :class => 'autosize' %>
-    </div>
-    <%= f.submit :class => 'button' %>
-  <% end %>
-</aside>

@@ -12,11 +12,14 @@
     <% @statuses.each do |status| %>
       <li>
         <%= content_tag :span, status.name, :class => "tag #{status.color}" %>
-        &mdash;
-        <%= link_to fa('arrow-up'), move_up_project_status_path(current_project, status), :method => :post, :remote => true %>
-        <%= link_to fa('arrow-down'), move_down_project_status_path(current_project, status), :method => :post, :remote => true %>
-        <%= link_to fa('pencil'), edit_project_status_path(current_project, status) %>
-        <%= destroy_link fa('trash-o'), project_status_path(current_project, status) %>
+
+        <span class="hover">
+          &mdash;
+          <%= link_to fa('arrow-up'), move_up_project_status_path(current_project, status), :method => :post, :remote => true %>
+          <%= link_to fa('arrow-down'), move_down_project_status_path(current_project, status), :method => :post, :remote => true %>
+          <%= link_to fa('pencil'), edit_project_status_path(current_project, status) %>
+          <%= destroy_link fa('trash-o'), project_status_path(current_project, status) %>
+        </span>
       </li>
     <% end %>
   </ol>

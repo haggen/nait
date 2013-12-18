@@ -3,12 +3,13 @@
   border-radius: 2px;
   color: #fff;
   display: inline-block;
-  padding: .6544em .809em;
+  padding: .6544em 1.01125em;
 
-  @include transition(box-shadow .1s);
+  @include transition(box-shadow .2s);
 
   &:hover {
-    box-shadow: inset 0 0 0 1px rgba(#000, .24);
+    box-shadow: inset 0 0 0 1px rgba(#000, .3);
+    color: #fff;
   }
 
   &.gray {
@@ -21,10 +22,6 @@
 
   &.orange {
     background: $ORANGE;
-  }
-
-  &.yellow {
-    background: $YELLOW;
   }
 
   &.yellow {

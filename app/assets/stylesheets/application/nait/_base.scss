@@ -1,6 +1,28 @@
+
+// .1em
+// .2em
+// .3em
+// .4em
+// .5em
+// .6em
+// .7em
+// .8em
+// .9em
+// 1em
+// 1.2135em
+// 1.41575em
+// 1.618em
+// 1.82025em
+// 2.0225em
+// 2.22475em
+// 2.427em
+// 2.62925em
+// 2.8315em
+// 3.03375em
+
 body {
   color: #222228;
-  font: 16px Helvetica Neue, Helvetica, Arial;
+  font: 16px Proxima Nova, sans-serif;
 }
 
 address,
@@ -48,7 +70,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 200;
+  font-weight: 600;
 }
 
 a {
@@ -85,6 +107,7 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  vertical-align: bottom;
 
   &.short {
     max-width: 16em;
@@ -121,4 +144,12 @@ ol {
       margin-left: 1.618em;
     }
   }
+}
+
+.hover {
+  display: none;
+}
+
+:hover > .hover {
+  display: inline-block;
 }

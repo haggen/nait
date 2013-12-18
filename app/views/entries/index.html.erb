@@ -7,13 +7,19 @@
   <ul>
     <% @entries.each do |entry| %>
       <li>
-        <%= render entry.status if entry.status %>
         <%= link_to entry.title, project_entry_path(current_project, entry), :class => 'truncate long' %>
-        <%= fa('clock-o') %>
-        <%= entry.time_recorded.to_s.concat "/#{entry.estimate || 'None'}" %>
-        <!-- &mdash; -->
-        <!-- <%= link_to fa('pencil'), edit_project_entry_path(current_project, entry) %> -->
-        <!-- <%= destroy_link fa('trash-o'), project_entry_path(current_project, entry) %> -->
+
+        <%= render entry.status if entry.status %>
+
+        <span class="tag"><%= humanize_and_pluralize entry.time_recorded, 'hour' %></span>
+        <span class="tag"><%= humanize_and_pluralize entry.comments.count, 'comment' %></span>
+
+        <span class="hover">
+          &mdash;
+          <%= link_to fa('clock-o'), new_project_time_record_path(current_project, :entry => entry) %>
+          <%= link_to fa('pencil'), edit_project_entry_path(current_project, entry) %>
+          <%= destroy_link fa('trash-o'), project_entry_path(current_project, entry) %>
+        </span>
       </li>
     <% end %>
   </ul>

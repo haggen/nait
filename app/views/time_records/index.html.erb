@@ -14,13 +14,16 @@
             <li>
               <strong><%= time_record.author.short_name %></strong>
               recorded
-              <strong><%= pluralize(time_record.value, 'hours') %></strong>
+              <strong><%= humanize_and_pluralize time_record.value, 'hours' %></strong>
               <% if time_record.entry %>
               for <%= link_to time_record.entry.title, project_entry_path(current_project, time_record.entry), :class => 'truncate short' %>
               <% end %>
-              &mdash;
-              <%= link_to fa('pencil'), edit_project_time_record_path(current_project, time_record) %>
-              <%= destroy_link fa('trash-o'), project_time_record_path(current_project, time_record) %>
+
+              <span class="hover">
+                &mdash;
+                <%= link_to fa('pencil'), edit_project_time_record_path(current_project, time_record) %>
+                <%= destroy_link fa('trash-o'), project_time_record_path(current_project, time_record) %>
+              </span>
             </li>
           <% end %>
         </ul>

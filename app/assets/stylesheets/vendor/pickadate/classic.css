@@ -5,9 +5,9 @@
  * Note: the root picker element should *NOT* be styled more than what’s here.
  */
 .picker {
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
-  line-height: 1.2;
+  line-height: 1.4;
   color: #000000;
   position: absolute;
   z-index: 10000;
@@ -26,7 +26,7 @@
  * When the picker is opened, the input element is “activated”.
  */
 .picker__input.picker__input--active {
-  border-color: #0089ec;
+  /*border-color: #0089ec;*/
 }
 /**
  * The holder is the only “scrollable” top-level container element.
@@ -53,17 +53,18 @@
 .picker__holder {
   position: absolute;
   background: #ffffff;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #99999f;
   border-top-width: 0;
   border-bottom-width: 0;
   /*-webkit-border-radius: 0 0 5px 5px;
   -moz-border-radius: 0 0 5px 5px;
   border-radius: 0 0 5px 5px;*/
+  border-radius: 0 0 2px 2px;*/
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   min-width: 176px;
-  max-width: 466px;
+  max-width: 22em;
   max-height: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);

@@ -17,13 +17,14 @@
   <% if current_user %>
     <% if current_project %>
       <h2>
-        <%= link_to current_project.name, projects_path %>
+        <%= link_to current_project.name, current_project_path %>
       </h2>
 
       <ul>
-        <li><%= link_to 'Summary', current_project_path %></li>
         <li><%= link_to 'Entries', project_entries_path(current_project) %></li>
         <li><%= link_to 'Time records', project_time_records_path(current_project) %></li>
+        <li><%= link_to 'People', project_memberships_path(current_project) %></li>
+        <li><%= link_to 'Exit project', projects_path %></li>
       </ul>
     <% else %>
       <h2>

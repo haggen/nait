@@ -26,4 +26,8 @@ module ApplicationHelper
   def markdown_to_html(source)
     RDiscount.new(source, :autolink, :filter_html).to_html.html_safe
   end
+  
+  def humanize_and_pluralize(number, word)
+    number_to_human(number).concat " #{word}".pluralize(number)
+  end
 end

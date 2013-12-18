@@ -4,7 +4,6 @@
 <% end if @user.errors.any? %>
 
 <%= form_for(@user) do |f| %>
-  <%= next_path_field %>
   <div class="row">
     <%= f.label :name %>
     <%= f.text_field :name %>

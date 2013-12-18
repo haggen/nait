@@ -3,9 +3,8 @@
 
   <% if current_project.manager == current_user %>
     <ul class="inline">
+      <li><%= link_to fa('tags').concat(' Entry statuses'), project_statuses_path(@project) %></li>
       <li><%= link_to fa('pencil').concat(' Edit'), edit_project_path(current_project) %></li>
-      <li><%= link_to fa('users').concat(' People'), project_memberships_path(@project) %></li>
-      <li><%= link_to fa('tags').concat(' Tags'), project_statuses_path(@project) %></li>
       <li><%= destroy_link fa('trash-o').concat(' Delete'), current_project %></li>
     </ul>
   <% end %>

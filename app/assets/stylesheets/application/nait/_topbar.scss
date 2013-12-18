@@ -1,7 +1,6 @@
 .topbar {
   background: #f4f4fa;
   padding: 1em 1.618em; 
-  font-weight: 200;
 
   a {
     text-decoration: none;
@@ -27,6 +26,7 @@
 
   h2 {
     margin: -1em 1.618em;
+    font-weight: 200;
 
     a {
       background: $AQUA;
