@@ -11,7 +11,7 @@
   </div>
   <div class="row">
     <%= f.label :manager_id %>
-    <%= f.collection_select :manager_id, @project.members, :id, :name, :prompt => 'Choose a manager' %>
+    <%= f.collection_select :manager_id, manager_html_options, :id, :name, :prompt => 'Choose a manager' %>
   </div>
   <%= f.submit :class => 'button' %>
 <% end %>

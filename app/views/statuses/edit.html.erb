@@ -1,6 +1,11 @@
 <header>
   <h1>Editting status</h1>
-  <%= link_to fa('arrow-left').concat(' Back'), project_statuses_path(current_project) %>
+
+  <ul class="inline">
+    <li>
+      <%= link_to fa('arrow-left').concat(' Back'), project_statuses_path(current_project) %>
+    </li>
+  </ul>
 </header>
 
 <%= render 'form' %>

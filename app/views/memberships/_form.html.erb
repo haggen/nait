@@ -1,13 +1,32 @@
 <%= alert :error do %>
   <%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:
-  <%= @membership.errors.full_messages.to_sentence %>
+  <strong><%= @membership.errors.full_messages.to_sentence.downcase %>.</strong>
 <% end if @membership.errors.any? %>
 
 <%= form_for [current_project, @membership] do |f| %>
   <%= next_path_field %>
   <div class="row">
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, current_project.non_members, :id, :name, :prompt => 'Choose an user' %>
+    <%= f.label :user_id, 'Existing user' %>
+    <%= f.collection_select :user_id, current_project.non_members, :id, :name, :prompt => 'None' %>
   </div>
+  <%= f.fields_for :user do |g| %>
+    <div class="row">
+      <%= g.label :name %>
+      <%= g.text_field :name %>
+    </div>
+    <div class="row">
+      <%= g.label :email %>
+      <%= g.email_field :email %>
+    </div>
+    <div class="row">
+      <%= g.label :password %>
+      <%= g.password_field :password %>
+    </div>
+    <div class="row">
+      <%= g.label :password_confirmation %>
+      <%= g.password_field :password_confirmation %>
+    </div>
+  <% end %>
   <%= f.submit :class => 'button' %>
 <% end %>
+

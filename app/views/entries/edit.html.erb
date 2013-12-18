@@ -1,6 +1,11 @@
 <header>
   <h1>Editting entry</h1>
-  <%= link_to fa('arrow-left').concat(' Back'), next_path %>
+
+  <ul class="inline">
+    <li>
+      <%= link_to fa('arrow-left').concat(' Back'), next_path %>
+    </li>
+  </ul>
 </header>
 
 <%= render 'form' %>

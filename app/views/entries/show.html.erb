@@ -12,22 +12,24 @@
 <article class="entry">
   <h2 class="no-margin"><%= @entry.title %></h2>
 
-  <p>
-  <cite>
-    &mdash;
-    <%= @entry.author.short_name %>,
-    on <%= l @entry.created_at, :format => :short %>
-    -
+
+  <p>  
     <%= render @entry.status if @entry.status %>
-    <%= fa('clock-o') %>
-    <%= @entry.time_recorded.to_s.concat "/#{@entry.estimate || 'None'}" %>
-    </cite>
+    <span class="tag"><%= humanize_and_pluralize @entry.time_recorded, 'hour' %></span>
+    <span class="tag"><%= humanize_and_pluralize @entry.comments.count, 'comment' %></span>
   </p>
+
 
   <% if @entry.description.blank? %>
     <p>No description.</p>
   <% else %>
-    <%= markdown_to_html @entry.description %>
+    <blockquote>
+      <%= markdown_to_html @entry.description %>
+      <cite>
+        &mdash;
+        <%= @entry.author.short_name %>, on <%= l @entry.created_at, :format => :short %>
+      </cite>
+    </blockquote>
   <% end %>
 
   <aside>

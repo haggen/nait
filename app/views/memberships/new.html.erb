@@ -1,6 +1,41 @@
 <header>
   <h1>New member</h1>
-  <%= link_to fa('arrow-left').concat(' Back'), project_memberships_path(current_project) %>
+  
+  <ul class="inline">
+    <li><%= link_to fa('arrow-left').concat(' Back'), project_memberships_path(current_project) %></li>
+  </ul>
 </header>
 
-<%= render 'form' %>
+<%= alert :error do %>
+  <%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:
+  <strong><%= @membership.errors.full_messages.to_sentence.downcase %>.</strong>
+<% end if @membership.errors.any? %>
+
+<%= form_for [current_project, @membership] do |f| %>
+  <div class="row">
+    <%= f.label :user_id, 'Existing user' %>
+    <%= f.collection_select :user_id, current_project.non_members, :id, :name, :prompt => 'None' %>
+  </div>
+
+  <%= f.fields_for :user do |g| %>
+    <div class="row">
+      <%= g.label :name %>
+      <%= g.text_field :name %>
+    </div>
+    <div class="row">
+      <%= g.label :email %>
+      <%= g.email_field :email %>
+    </div>
+    <div class="row">
+      <%= g.label :password %>
+      <%= g.password_field :password %>
+    </div>
+    <div class="row">
+      <%= g.label :password_confirmation %>
+      <%= g.password_field :password_confirmation %>
+    </div>
+  <% end %>
+  <%= f.submit :class => 'button' %>
+<% end %>
+
+

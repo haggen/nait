@@ -1,6 +1,6 @@
 <%= alert :error do %>
   <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
-  <%= @user.errors.full_messages.to_sentence %>
+  <strong><%= @user.errors.full_messages.to_sentence %>.</strong>
 <% end if @user.errors.any? %>
 
 <%= form_for(@user) do |f| %>

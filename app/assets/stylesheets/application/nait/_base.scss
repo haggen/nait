@@ -20,11 +20,6 @@
 // 2.8315em
 // 3.03375em
 
-body {
-  color: #222228;
-  font: 16px Proxima Nova, sans-serif;
-}
-
 address,
 article,
 aside,
@@ -64,6 +59,13 @@ video {
   padding: 0;
 }
 
+body {
+  background: #f4f4fa;
+  color: #222228;
+  font: 18px Proxima Nova, sans-serif;
+  padding: 1.618em;
+}
+
 h1,
 h2,
 h3,
@@ -82,6 +84,35 @@ a {
   &:hover {
     color: inherit;
   }
+
+  &.purple {
+    color: $PURPLE;
+  }
+
+  &.blue {
+    color: $BLUE;
+  }
+
+  &.aqua {
+    color: $AQUA;
+  }
+
+  &.green {
+    color: $GREEN;
+  }
+
+  &.yellow {
+    color: $YELLOW;
+  }
+
+  &.orange {
+    color: $ORANGE;
+  }
+
+  &.red {
+    color: $RED;
+  }
+
 }
 
 cite {
@@ -107,7 +138,7 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  vertical-align: bottom;
+  vertical-align: -28%;
 
   &.short {
     max-width: 16em;

@@ -10,4 +10,8 @@ module ProjectsHelper
   def edit_current_project_path
     edit_project_path current_project
   end
+
+  def manager_html_options
+    User.all
+  end
 end

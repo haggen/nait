@@ -1,6 +1,11 @@
 <header>
   <h1>New project</h1>
-  <%= link_to fa('arrow-left').concat(' Back'), projects_path %>
+
+  <ul class="inline">
+    <li>
+      <%= link_to fa('arrow-left').concat(' Back'), projects_path %>
+    </li>
+  </ul>
 </header>
 
 <%= render 'form' %>

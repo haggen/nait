@@ -1,6 +1,9 @@
 <header>
   <h1>Editing comment</h1>
-  <%= link_to fa('arrow-left').concat(' Back'), next_path %>
+
+  <ul class="inline">
+    <li><%= link_to fa('arrow-left').concat(' Back'), project_memberships_path(current_project) %></li>
+  </ul>
 </header>
 
 <%= render 'form' %>

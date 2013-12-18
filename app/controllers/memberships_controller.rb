@@ -16,6 +16,7 @@ class MembershipsController < ApplicationController
 
   def new
     new_resource
+    @membership.build_user
     respond_with_resource
   end
 
@@ -49,6 +50,6 @@ class MembershipsController < ApplicationController
   end
   
   def membership_params
-    params.require(:membership).permit(:user_id)
+    params.require(:membership).permit(:user_id, :user_attributes => [:name, :email, :password, :password_confirmation])
   end
 end

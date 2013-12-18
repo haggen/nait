@@ -1,7 +1,12 @@
 <header>
   <h1>Listing entries</h1>
-  <%= link_to fa('plus').concat(' New entry'), new_project_entry_path(current_project) %>
+
+  <ul class="inline">
+    <li><%= link_to fa('plus').concat(' New entry'), new_project_entry_path(current_project) %></li>
+  </ul>
 </header>
+
+<%= flash_alerts %>
 
 <% if @entries.any? %>
   <ul>
@@ -10,7 +15,6 @@
         <%= link_to entry.title, project_entry_path(current_project, entry), :class => 'truncate long' %>
 
         <%= render entry.status if entry.status %>
-
         <span class="tag"><%= humanize_and_pluralize entry.time_recorded, 'hour' %></span>
         <span class="tag"><%= humanize_and_pluralize entry.comments.count, 'comment' %></span>
 

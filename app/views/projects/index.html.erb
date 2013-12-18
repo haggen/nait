@@ -1,16 +1,28 @@
 <header>
   <h1>Listing projects</h1>
-  <%= link_to fa('plus').concat(' New project'), new_project_path %>
+
+  <ul class="inline">
+    <li><%= link_to fa('plus').concat(' New project'), new_project_path %></li>
+  </ul>
 </header>
 
+<%= flash_alerts %>
+
 <% if @projects.any? %>
-<ul>
-  <% @projects.each do |project| %>
-    <li>
-      <%= link_to project.name, project %>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @projects.each do |project| %>
+      <li>
+        <%= link_to project.name, project %>
+
+        <span class="hover">
+          &mdash;
+          <%= link_to fa('tags'), project_statuses_path(project) %>
+          <%= link_to fa('pencil'), edit_project_path(project) %>
+          <%= destroy_link fa('trash-o'), project %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
 <% else %>
   <p>No projects.</p>
 <% end %>

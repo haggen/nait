@@ -6,5 +6,9 @@
     <% else %><%= fa('info-circle') %>
   <% end %>
 
-  <%= message or body.call %>
+  <% if body %>
+    <% body.call %>
+  <% else %>
+    <%= message %>
+  <% end %>
 <% end %>

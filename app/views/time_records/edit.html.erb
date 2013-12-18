@@ -1,6 +1,11 @@
 <header>
   <h1>Editting time record</h1>
-  <%= link_to fa('arrow-left').concat(' Back'), project_time_records_path(current_project) %>
+  
+  <ul class="inline">
+    <li>
+      <%= link_to fa('arrow-left').concat(' Back'), project_time_records_path(current_project) %>
+    </li>
+  </ul>
 </header>
 
 <%= render 'form' %>
