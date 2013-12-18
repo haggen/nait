@@ -67,7 +67,7 @@ module Resourced
   end
 
   def response_location
-    next_path || url_for([parent_resource, resource_name.pluralize])
+    url_for [parent_resource, resource_name.pluralize]
   end
 
   def flash_notice(action)
