@@ -56,10 +56,10 @@
   border: 1px solid #99999f;
   border-top-width: 0;
   border-bottom-width: 0;
-  /*-webkit-border-radius: 0 0 5px 5px;
-  -moz-border-radius: 0 0 5px 5px;
-  border-radius: 0 0 5px 5px;*/
-  border-radius: 0 0 2px 2px;*/
+  /*-webkit-border-radius: 0 0 5px 5px;*/
+  /*-moz-border-radius: 0 0 5px 5px;*/
+  /*border-radius: 0 0 5px 5px;*/
+  border-radius: 0 0 2px 2px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
