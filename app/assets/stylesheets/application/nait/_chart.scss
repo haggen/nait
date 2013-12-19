@@ -1,0 +1,39 @@
+.chart-bar {
+  border-radius: 2px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.chart-bar div {
+  float: left;
+  height: 100%;
+
+  &.red {
+    background: $RED;
+  }
+
+  &.orange {
+    background: $ORANGE;
+  }
+
+  &.yellow {
+    background: $YELLOW;
+  }
+
+  &.green {
+    background: $GREEN;
+  }
+
+  &.aqua {
+    background: $AQUA;
+  }
+
+  &.purple {
+    background: $PURPLE;
+  }
+
+  &.blue {
+    background: $BLUE;
+  }
+}
+

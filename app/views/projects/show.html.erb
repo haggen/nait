@@ -10,30 +10,13 @@
   <% end %>
 </header>
 
-<p>...</p>
-
-<!--
-<header>
-  <h1>Comments</h1>
-</header>
-
-<% if @project.comments.each do |comment| %>
-  <blockquote>
-    <%= simple_format comment.content %>
-    <cite>&mdash; <%= comment.author.name %>, <%= time_ago_in_words comment.created_at %></cite>
-  </blockquote>
-<% end.empty? %>
-  <p>No comments.</p>
+<% if @project.entries.any? %>
+<div class="chart-bar">
+  <% @project.statuses.each do |status| %>
+    <% n = status.entries.count %>
+    <%= content_tag :div, nil, :class => "#{status.color} tipped", :data => {:amount => n}, :title => "#{n} #{status.name}" %>
+  <% end %>
+</div>
+<% else %>
+  <p>No summary to display.</p>
 <% end %>
-
-<header>
-  <h3>New comment</h3>
-</header>
-
-<%= form_for [@project, @project.comments.new] do |f| %>
-  <div class="row">
-    <%= f.text_area :content %>
-  </div>
-  <%= f.submit :class => 'button' %>
-<% end %>
--->
