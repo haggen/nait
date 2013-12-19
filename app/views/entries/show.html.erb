@@ -15,7 +15,7 @@
 
   <p>  
     <%= render @entry.status if @entry.status %>
-    <span class="tag"><%= humanize_and_pluralize @entry.time_recorded, 'hour' %></span>
+    <span class="tag"><%= humanize_and_pluralize @entry.time_recorded, 'hour' %><%= " out of #{number_to_human @entry.estimate}" unless @entry.estimate.blank? %></span>
     <span class="tag"><%= humanize_and_pluralize @entry.comments.count, 'comment' %></span>
   </p>
 
